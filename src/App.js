@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useContext } from "react";
+import AppContext from "./context/AppContext";
+import A from './A';
 function App() {
+  const context = useContext(AppContext);
+
+  console.log(context);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {context.name}
+
+      <button
+        onClick={() => {
+          context.setName("ETP Batch2");
+        }}
+      >
+        Change Name
+      </button>
+
+      <A/>
+    </>
   );
 }
 
